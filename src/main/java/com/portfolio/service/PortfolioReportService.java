@@ -1,10 +1,10 @@
 package com.portfolio.service;
 
-import com.portfolio.dto.response.PortfolioReportResponse;
-import com.portfolio.entity.Project;
-import com.portfolio.enums.ProjectStatus;
-import com.portfolio.repository.ProjectMemberRepository;
-import com.portfolio.repository.ProjectRepository;
+import com.portfolio.view.response.PortfolioReportResponse;
+import com.portfolio.model.entity.Project;
+import com.portfolio.model.enums.ProjectStatus;
+import com.portfolio.model.repository.ProjectMemberRepository;
+import com.portfolio.model.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

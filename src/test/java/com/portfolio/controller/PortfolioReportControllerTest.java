@@ -1,6 +1,6 @@
 package com.portfolio.controller;
 
-import com.portfolio.dto.response.PortfolioReportResponse;
+import com.portfolio.view.response.PortfolioReportResponse;
 import com.portfolio.security.JwtService;
 import com.portfolio.service.PortfolioReportService;
 import org.junit.jupiter.api.DisplayName;

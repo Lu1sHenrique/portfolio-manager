@@ -1,6 +1,6 @@
 package com.portfolio.controller;
 
-import com.portfolio.dto.response.PortfolioReportResponse;
+import com.portfolio.view.response.PortfolioReportResponse;
 import com.portfolio.service.PortfolioReportService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

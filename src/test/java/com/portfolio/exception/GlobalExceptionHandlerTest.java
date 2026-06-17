@@ -1,6 +1,6 @@
 package com.portfolio.exception;
 
-import com.portfolio.dto.response.ErrorResponse;
+import com.portfolio.view.response.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

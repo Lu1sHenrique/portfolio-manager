@@ -1,11 +1,11 @@
 package com.portfolio.service;
 
-import com.portfolio.dto.request.ExternalMemberRequest;
-import com.portfolio.dto.response.MemberResponse;
-import com.portfolio.entity.Member;
+import com.portfolio.view.request.ExternalMemberRequest;
+import com.portfolio.view.response.MemberResponse;
+import com.portfolio.model.entity.Member;
 import com.portfolio.exception.ResourceNotFoundException;
-import com.portfolio.mapper.MemberMapper;
-import com.portfolio.repository.MemberRepository;
+import com.portfolio.view.mapper.MemberMapper;
+import com.portfolio.model.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

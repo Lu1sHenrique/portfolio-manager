@@ -1,6 +1,6 @@
 package com.portfolio.exception;
 
-import com.portfolio.enums.ProjectStatus;
+import com.portfolio.model.enums.ProjectStatus;
 
 public class ProjectDeletionException extends BusinessRuleException {
 

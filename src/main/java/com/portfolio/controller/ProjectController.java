@@ -1,10 +1,10 @@
 package com.portfolio.controller;
 
-import com.portfolio.dto.request.MemberAllocationRequest;
-import com.portfolio.dto.request.ProjectFilterRequest;
-import com.portfolio.dto.request.ProjectRequest;
-import com.portfolio.dto.request.ProjectStatusRequest;
-import com.portfolio.dto.response.ProjectResponse;
+import com.portfolio.view.request.MemberAllocationRequest;
+import com.portfolio.view.request.ProjectFilterRequest;
+import com.portfolio.view.request.ProjectRequest;
+import com.portfolio.view.request.ProjectStatusRequest;
+import com.portfolio.view.response.ProjectResponse;
 import com.portfolio.service.ProjectService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

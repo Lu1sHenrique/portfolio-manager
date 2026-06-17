@@ -1,7 +1,7 @@
 package com.portfolio.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.portfolio.dto.request.LoginRequest;
+import com.portfolio.view.request.LoginRequest;
 import com.portfolio.security.JwtService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

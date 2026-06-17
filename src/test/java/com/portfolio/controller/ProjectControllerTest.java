@@ -1,12 +1,12 @@
 package com.portfolio.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.portfolio.dto.request.MemberAllocationRequest;
-import com.portfolio.dto.request.ProjectFilterRequest;
-import com.portfolio.dto.request.ProjectRequest;
-import com.portfolio.dto.request.ProjectStatusRequest;
-import com.portfolio.dto.response.ProjectResponse;
-import com.portfolio.enums.ProjectStatus;
+import com.portfolio.view.request.MemberAllocationRequest;
+import com.portfolio.view.request.ProjectFilterRequest;
+import com.portfolio.view.request.ProjectRequest;
+import com.portfolio.view.request.ProjectStatusRequest;
+import com.portfolio.view.response.ProjectResponse;
+import com.portfolio.model.enums.ProjectStatus;
 import com.portfolio.exception.BusinessRuleException;
 import com.portfolio.exception.InvalidStatusTransitionException;
 import com.portfolio.exception.ProjectDeletionException;

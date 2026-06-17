@@ -1,7 +1,7 @@
 package com.portfolio.controller;
 
-import com.portfolio.dto.request.LoginRequest;
-import com.portfolio.dto.response.LoginResponse;
+import com.portfolio.view.request.LoginRequest;
+import com.portfolio.view.response.LoginResponse;
 import com.portfolio.security.JwtService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

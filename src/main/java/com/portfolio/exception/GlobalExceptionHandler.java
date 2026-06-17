@@ -1,6 +1,6 @@
 package com.portfolio.exception;
 
-import com.portfolio.dto.response.ErrorResponse;
+import com.portfolio.view.response.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

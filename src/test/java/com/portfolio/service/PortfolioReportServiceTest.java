@@ -1,12 +1,12 @@
 package com.portfolio.service;
 
-import com.portfolio.dto.response.PortfolioReportResponse;
-import com.portfolio.entity.Member;
-import com.portfolio.entity.Project;
-import com.portfolio.enums.MemberRole;
-import com.portfolio.enums.ProjectStatus;
-import com.portfolio.repository.ProjectMemberRepository;
-import com.portfolio.repository.ProjectRepository;
+import com.portfolio.view.response.PortfolioReportResponse;
+import com.portfolio.model.entity.Member;
+import com.portfolio.model.entity.Project;
+import com.portfolio.model.enums.MemberRole;
+import com.portfolio.model.enums.ProjectStatus;
+import com.portfolio.model.repository.ProjectMemberRepository;
+import com.portfolio.model.repository.ProjectRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

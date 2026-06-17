@@ -1,12 +1,12 @@
 package com.portfolio.service;
 
-import com.portfolio.dto.request.ExternalMemberRequest;
-import com.portfolio.dto.response.MemberResponse;
-import com.portfolio.entity.Member;
-import com.portfolio.enums.MemberRole;
+import com.portfolio.view.request.ExternalMemberRequest;
+import com.portfolio.view.response.MemberResponse;
+import com.portfolio.model.entity.Member;
+import com.portfolio.model.enums.MemberRole;
 import com.portfolio.exception.ResourceNotFoundException;
-import com.portfolio.mapper.MemberMapper;
-import com.portfolio.repository.MemberRepository;
+import com.portfolio.view.mapper.MemberMapper;
+import com.portfolio.model.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
