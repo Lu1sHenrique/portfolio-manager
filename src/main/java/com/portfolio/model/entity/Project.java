@@ -80,20 +80,18 @@ public class Project {
     @Transient
     public RiskLevel getRiskLevel() {
         long months = calculateDurationInMonths();
-        boolean isLowBudget = totalBudget.compareTo(LOW_RISK_BUDGET_THRESHOLD) <= 0;
-        boolean isMediumBudget = totalBudget.compareTo(LOW_RISK_BUDGET_THRESHOLD) > 0
-                && totalBudget.compareTo(MEDIUM_RISK_BUDGET_THRESHOLD) <= 0;
-        boolean isHighBudget = totalBudget.compareTo(MEDIUM_RISK_BUDGET_THRESHOLD) > 0;
 
-        if (isHighBudget || months > MEDIUM_RISK_MONTHS_THRESHOLD) {
+        boolean isHighBudget = totalBudget.compareTo(MEDIUM_RISK_BUDGET_THRESHOLD) > 0;
+        boolean isLongDuration = months > MEDIUM_RISK_MONTHS_THRESHOLD;
+
+        if (isHighBudget || isLongDuration) {
             return RiskLevel.HIGH;
         }
 
-        if (isMediumBudget || (months > LOW_RISK_MONTHS_THRESHOLD && months <= MEDIUM_RISK_MONTHS_THRESHOLD)) {
-            return RiskLevel.MEDIUM;
-        }
+        boolean isLowBudget = totalBudget.compareTo(LOW_RISK_BUDGET_THRESHOLD) <= 0;
+        boolean isShortDuration = months <= LOW_RISK_MONTHS_THRESHOLD;
 
-        if (isLowBudget && months <= LOW_RISK_MONTHS_THRESHOLD) {
+        if (isLowBudget && isShortDuration) {
             return RiskLevel.LOW;
         }
 

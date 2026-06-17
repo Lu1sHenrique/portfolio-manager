@@ -7,6 +7,7 @@ import com.portfolio.model.entity.Member;
 import com.portfolio.model.entity.Project;
 import com.portfolio.model.entity.ProjectMember;
 import com.portfolio.model.enums.ProjectStatus;
+import com.portfolio.model.enums.RiskLevel;
 import com.portfolio.exception.BusinessRuleException;
 import com.portfolio.exception.InvalidStatusTransitionException;
 import com.portfolio.exception.MemberAllocationException;
@@ -18,11 +19,14 @@ import com.portfolio.model.repository.ProjectRepository;
 import com.portfolio.model.specification.ProjectSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,8 +42,28 @@ public class ProjectService {
 
     @Transactional(readOnly = true)
     public Page<ProjectResponse> findAll(ProjectFilterRequest filter, Pageable pageable) {
-        return projectRepository.findAll(ProjectSpecification.withFilters(filter), pageable)
-                .map(projectMapper::toResponse);
+        RiskLevel riskLevelFilter = filter.getRiskLevel();
+
+        if (riskLevelFilter == null) {
+            return projectRepository.findAll(ProjectSpecification.withFilters(filter), pageable)
+                    .map(projectMapper::toResponse);
+        }
+
+        List<Project> allProjects = projectRepository.findAll(ProjectSpecification.withFilters(filter));
+
+        List<ProjectResponse> filteredProjects = allProjects.stream()
+                .filter(project -> project.getRiskLevel() == riskLevelFilter)
+                .map(projectMapper::toResponse)
+                .collect(Collectors.toList());
+
+        int start = (int) pageable.getOffset();
+        int end = Math.min(start + pageable.getPageSize(), filteredProjects.size());
+
+        List<ProjectResponse> pageContent = start >= filteredProjects.size()
+                ? List.of()
+                : filteredProjects.subList(start, end);
+
+        return new PageImpl<>(pageContent, pageable, filteredProjects.size());
     }
 
     @Transactional(readOnly = true)
@@ -58,6 +82,15 @@ public class ProjectService {
         project.setStatus(ProjectStatus.IN_ANALYSIS);
 
         Project saved = projectRepository.save(project);
+
+        ProjectMember managerAsMember = ProjectMember.builder()
+                .project(saved)
+                .member(manager)
+                .allocationDate(LocalDate.now())
+                .build();
+        saved.addMember(managerAsMember);
+        projectRepository.save(saved);
+
         return projectMapper.toResponse(saved);
     }
 
